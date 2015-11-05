@@ -1,0 +1,26 @@
+变量的使用：
+first = issac middle = basdf last = singer      单行中可以进行多次赋值
+fullname = "issa bashevis singer"               值中包含空格时使用引号
+oldname = $fullname                             这里就不需要引号，但是也可以加上引号
+fullname = "$first $middle $last"               这里这样的话就需要使用双引号了
+ 
+重定向：
+  以<改变标准输入：tr -d '\r' < dos-file.txt
+  以>改变标准输出：tr -d '\r' < dos-file.txt > UNIX-file.txt 这是将回车删除再输出到UNIX-file.txt文件中
+  
+  以>>附加到文件: 如同>,如果目录文件不存在，>>重定向符便会创建一个。然而，如果目的文件存在，将不会直接覆盖掉文件，
+  而是将程序所产生的数据附加到文件的结尾处。
+  同样使用|管道也可以连接两个程序的输入输出，但是管道的执行速度比使用临时文件快上十倍
+  
+  
+特殊文件：/dev/null和/dev/tty
+  第一个文件/dev/null就是所谓的位桶，传送到此文件的数据都会被系统丢掉，也就是说，当程序将程序写到此文件时，会认为它已经完成了
+  写入数据的操作，但实际上什么事情都没有做。如果需要的是命令的退出状态而非输出，此功能就会很有用。
+  /dev/tty在程序必须读取人工输入时，特别有用。
+  
+如果要编写自己的脚本，最好准备自己的bin目录来存放他们，并且让shell自动找到他们，只需要建立自己的bin目录，加入到$path即可
+  cd
+  mkdir bin
+  mv nurse bin   将我们的脚本置于该目录
+  PATH = $PATH:$HOME/bin
+  nurse
